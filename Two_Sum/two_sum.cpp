@@ -10,16 +10,24 @@ class TwoSum{
     // Space complexity: O(n), for storing the hash map.
     // The function returns a vector of two integers representing the indices of the two numbers.   
 public:
-    vector<int> twoSum(vector<int>& nums, int target) {
-        unordered_map<int, int> sum_map;
-    
-        return {}; // Return an empty vector if no solution is found
-    }
+vector<int> twoSum(vector<int>& nums, int target) {
+    unordered_map<int, int> sum_map;
+    for (int i = 0; i < nums.size(); ++i) {
+        int diff = target-nums[i];
+        if (sum_map.find(diff) == sum_map.end()) {
+            sum_map[diff] = nums[i];
+        }
+        else {
+            return {sum_map[diff], i};
+        }
+    }		
+    return {}; // Return an empty vector if no solution is found
+}
 };
 
 int main() {
     TwoSum solution; // Create an instance of the TwoSum class
-    vector<int> nums = {2, 7, 11, 15}; // Example input array
+    vector<int> nums = {2, 4, -13, 7, 11, 15}; // Example input array
     int target = 9; // Example target value
     vector<int> result = solution.twoSum(nums, target); // Call the twoSum function
     cout << "Indices: " << result[0] << ", " << result[1] << endl; // Output the result
