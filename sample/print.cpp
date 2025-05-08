@@ -5,4 +5,4 @@
 #include "function.h"
 using namespace std;
 
-void print() { cout < "makefile" << endl; }
+void print() { cout << "makefile" << endl; }
