@@ -14,11 +14,13 @@ vector<int> twoSum(vector<int>& nums, int target) {
     unordered_map<int, int> sum_map;
     for (int i = 0; i < nums.size(); ++i) {
         int diff = target-nums[i];
-        if (sum_map.find(diff) == sum_map.end()) {
-            sum_map[diff] = nums[i];
+        if (sum_map.find(nums[i]) == sum_map.end()) {
+            // std::cout << "vals: " << sum_map[diff] << "  " << nums[i];
+            sum_map[diff] = i;
         }
         else {
-            return {sum_map[diff], i};
+            // std::cout << "vals: " << sum_map[diff] << i;
+            return {sum_map[nums[i]], i};
         }
     }		
     return {}; // Return an empty vector if no solution is found
@@ -28,7 +30,7 @@ vector<int> twoSum(vector<int>& nums, int target) {
 int main() {
     TwoSum solution; // Create an instance of the TwoSum class
     vector<int> nums = {2, 4, -13, 7, 11, 15}; // Example input array
-    int target = 9; // Example target value
+    int target = 26; // Example target value
     vector<int> result = solution.twoSum(nums, target); // Call the twoSum function
     cout << "Indices: " << result[0] << ", " << result[1] << endl; // Output the result
     return 0; // Return success
