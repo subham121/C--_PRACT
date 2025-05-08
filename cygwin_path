@@ -1,0 +1,1 @@
+$env:PATH = "$env:PATH;C:\cygwin64\bin"
